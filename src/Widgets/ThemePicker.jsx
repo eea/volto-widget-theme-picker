@@ -1,29 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 import { Grid, Button } from 'semantic-ui-react';
-import { defineMessages, useIntl } from 'react-intl';
-
-const messages = defineMessages({
-  Color: {
-    id: 'Color',
-    defaultMessage: 'Color',
-  },
-});
 
 const ThemePicker = (props) => {
   const { id, title, required, value, onChange, colors, className } = props;
-
-  const intl = useIntl();
 
   React.useEffect(() => {
     if (!props.value && props.default) {
       props.onChange(props.id, props.default);
     }
-    // Yes, this is correct.
   });
-  console.log('im loading the theme picker');
-  return colors.length > 0 ? (
+
+  return colors && colors.length > 0 ? (
     <Form.Field
       inline
       required={required}
@@ -38,27 +26,43 @@ const ThemePicker = (props) => {
             verticalAlign="middle"
           >
             <div className="wrapper">
-              <label htmlFor={`field-${id}`}>
-                {title ? title : intl.formatMessage(messages.Color)}
-              </label>
+              <label htmlFor={`field-${id}`}>{title ? title : 'Color'}</label>
 
               <div className="buttons">
                 {colors.map((color) => {
-                  return (
-                    <Button
-                      key={id + color.name}
-                      className={color.name}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        onChange(id, color.name);
-                      }}
-                      active={value === color.name}
-                      circular
-                      aria-label={color.label}
-                      title={color.label}
-                    />
-                  );
+                  if (color.type === 'pluggable') {
+                    return (
+                      <Button
+                        key={id + color.name}
+                        className={color.name}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          onChange(id, color.name);
+                        }}
+                        active={value === color.name}
+                        circular
+                        aria-label={color.label}
+                        title={color.label}
+                      />
+                    );
+                  } else {
+                    return (
+                      <Button
+                        key={id + color.name}
+                        style={{ backgroundColor: color.name }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          onChange(id, color.name);
+                        }}
+                        active={value === color.name}
+                        circular
+                        aria-label={color.label}
+                        title={'Color: ' + color.label}
+                      />
+                    );
+                  }
                 })}
               </div>
             </div>
@@ -67,22 +71,6 @@ const ThemePicker = (props) => {
       </Grid>
     </Form.Field>
   ) : null;
-};
-
-ThemePicker.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  colors: PropTypes.array,
-};
-
-ThemePicker.defaultProps = {
-  required: false,
-  value: null,
-  onChange: null,
-  colors: [],
 };
 
 export default ThemePicker;
