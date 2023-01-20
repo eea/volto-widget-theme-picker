@@ -30,39 +30,21 @@ const ThemePicker = (props) => {
 
               <div className="buttons">
                 {colors.map((color) => {
-                  if (color.type === 'pluggable') {
-                    return (
-                      <Button
-                        key={id + color.name}
-                        className={color.name}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          onChange(id, color.name);
-                        }}
-                        active={value === color.name}
-                        circular
-                        aria-label={color.label}
-                        title={color.label}
-                      />
-                    );
-                  } else {
-                    return (
-                      <Button
-                        key={id + color.name}
-                        style={{ backgroundColor: color.name }}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          onChange(id, color.name);
-                        }}
-                        active={value === color.name}
-                        circular
-                        aria-label={color.label}
-                        title={'Color: ' + color.label}
-                      />
-                    );
-                  }
+                  return (
+                    <Button
+                      key={id + color.name}
+                      className={color.name}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        onChange(id, color.name);
+                      }}
+                      active={value === color.name}
+                      circular
+                      aria-label={color.label}
+                      title={color.label}
+                    />
+                  );
                 })}
               </div>
             </div>
