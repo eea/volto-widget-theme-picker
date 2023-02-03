@@ -3,11 +3,20 @@ import { Form } from 'semantic-ui-react';
 import { Grid, Button } from 'semantic-ui-react';
 
 const ThemePicker = (props) => {
-  const { id, title, required, value, onChange, colors, className } = props;
+  const {
+    id,
+    title,
+    required,
+    defaultValue = 'default',
+    value,
+    onChange,
+    colors,
+    className,
+  } = props;
 
   React.useEffect(() => {
-    if (!props.value && props.default) {
-      props.onChange(props.id, props.default);
+    if (!value && defaultValue) {
+      onChange(id, defaultValue);
     }
   });
 
