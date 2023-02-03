@@ -4,7 +4,7 @@ const applyConfig = (config) => {
   config.widgets.widget.theme_picker = ThemePickerWidget;
 
   config.settings.themeColors = [
-    { value: 'no-theme', title: 'No theme' },
+    { value: 'default', title: 'Default' },
     { value: 'primary', title: 'Primary' },
     { value: 'secondary', title: 'Secondary' },
     { value: 'tertiary', title: 'Tertiary' },

@@ -7,7 +7,7 @@ const ThemePicker = (props) => {
     id,
     title,
     required,
-    defaultValue = 'no-theme',
+    defaultValue = 'default',
     value,
     onChange,
     colors,
