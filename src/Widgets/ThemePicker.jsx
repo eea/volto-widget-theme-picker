@@ -3,22 +3,11 @@ import { Form } from 'semantic-ui-react';
 import { Grid, Button } from 'semantic-ui-react';
 
 const ThemePicker = (props) => {
-  const {
-    id,
-    title,
-    required,
-    defaultValue = 'default',
-    value,
-    onChange,
-    colors,
-    className,
-  } = props;
+  const { id, title, required, value, onChange, colors, className } = props;
 
-  React.useEffect(() => {
-    if (!value && defaultValue) {
-      onChange(id, defaultValue);
-    }
-  });
+  const handleChange = (e, { value }) => {
+    onChange(id, value);
+  };
 
   return colors && colors.length > 0 ? (
     <Form.Field
@@ -46,7 +35,7 @@ const ThemePicker = (props) => {
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        onChange(id, color.name);
+                        handleChange(e, { value: color.name });
                       }}
                       active={value === color.name}
                       circular
