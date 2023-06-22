@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: Widgets/ThemePicker
+# defaultMessage: Color
+msgid "Color"
+msgstr ""
+
+#: index
+# defaultMessage: No theme
+msgid "No theme"
+msgstr ""
+
+#: index
+# defaultMessage: Primary
+msgid "Primary"
+msgstr ""
+
+#: index
+# defaultMessage: Secondary
+msgid "Secondary"
+msgstr ""
+
+#: index
+# defaultMessage: Tertiary
+msgid "Tertiary"
+msgstr ""

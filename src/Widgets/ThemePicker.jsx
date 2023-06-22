@@ -1,6 +1,14 @@
 import React from 'react';
+import { defineMessages } from 'react-intl';
 import { Form } from 'semantic-ui-react';
 import { Grid, Button } from 'semantic-ui-react';
+
+const messages = defineMessages({
+  Color: {
+    id: 'Color',
+    defaultMessage: 'Color',
+  },
+});
 
 const ThemePicker = (props) => {
   const { id, title, required, value, onChange, colors, className } = props;
@@ -24,7 +32,9 @@ const ThemePicker = (props) => {
             verticalAlign="middle"
           >
             <div className="wrapper">
-              <label htmlFor={`field-${id}`}>{title ? title : 'Color'}</label>
+              <label htmlFor={`field-${id}`}>
+                {title ? title : `${intl.formatMessage(messages.Color)}`}
+              </label>
 
               <div className="buttons">
                 {colors.map((color) => {
