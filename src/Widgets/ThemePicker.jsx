@@ -1,7 +1,6 @@
 import React from 'react';
 import { defineMessages } from 'react-intl';
-import { Form } from 'semantic-ui-react';
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid, Button, Form } from 'semantic-ui-react';
 
 const messages = defineMessages({
   Color: {
