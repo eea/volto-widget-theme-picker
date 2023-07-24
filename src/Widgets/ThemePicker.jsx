@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid, Button, Form } from 'semantic-ui-react';
 
 const ThemePicker = (props) => {
   const { id, title, required, value, onChange, colors, className } = props;
