@@ -14,12 +14,11 @@
 [![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
 [![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
 
-
 [Volto](https://github.com/plone/volto) add-on
 
 ## Features
 
-Demo GIF
+![Widget Theme Picker](https://github.com/eea/volto-widget-theme-picker/raw/develop/docs/volto-widget-theme-picker.gif)
 
 ## Getting started
 
@@ -29,25 +28,25 @@ Demo GIF
 
 1. Start Volto frontend
 
-* If you already have a volto project, just update `package.json`:
+- If you already have a volto project, just update `package.json`:
 
-   ```JSON
-   "addons": [
-       "@eeacms/volto-widget-theme-picker"
-   ],
+  ```JSON
+  "addons": [
+      "@eeacms/volto-widget-theme-picker"
+  ],
 
-   "dependencies": {
-       "@eeacms/volto-widget-theme-picker": "*"
-   }
-   ```
+  "dependencies": {
+      "@eeacms/volto-widget-theme-picker": "*"
+  }
+  ```
 
-* If not, create one:
+- If not, create one:
 
-   ```
-   npm install -g yo @plone/generator-volto
-   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-theme-picker
-   cd my-volto-project
-   ```
+  ```
+  npm install -g yo @plone/generator-volto
+  yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-theme-picker
+  cd my-volto-project
+  ```
 
 1. Install new add-ons and restart Volto:
 
