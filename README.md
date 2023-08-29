@@ -18,7 +18,8 @@
 
 ## Features
 
-![Widget Theme Picker](./docs/volto-widget-theme-picker.gif)
+![Widget Theme Picker](https://raw.githubusercontent.com/eea/volto-widget-theme-picker/master/docs/volto-widget-theme-picker.gif)
+
 
 ## Getting started
 
