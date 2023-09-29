@@ -20,7 +20,6 @@
 
 ![Widget Theme Picker](https://raw.githubusercontent.com/eea/volto-widget-theme-picker/master/docs/volto-widget-theme-picker.gif)
 
-
 ## Getting started
 
 ### Try volto-widget-theme-picker with Docker
@@ -42,25 +41,25 @@ Go to http://localhost:3000
 
 1. Start Volto frontend
 
-- If you already have a volto project, just update `package.json`:
+* If you already have a volto project, just update `package.json`:
 
-  ```JSON
-  "addons": [
-      "@eeacms/volto-widget-theme-picker"
-  ],
+   ```JSON
+   "addons": [
+       "@eeacms/volto-widget-theme-picker"
+   ],
 
-  "dependencies": {
-      "@eeacms/volto-widget-theme-picker": "*"
-  }
-  ```
+   "dependencies": {
+       "@eeacms/volto-widget-theme-picker": "*"
+   }
+   ```
 
-- If not, create one:
+* If not, create one:
 
-  ```
-  npm install -g yo @plone/generator-volto
-  yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-theme-picker
-  cd my-volto-project
-  ```
+   ```
+   npm install -g yo @plone/generator-volto
+   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-theme-picker
+   cd my-volto-project
+   ```
 
 1. Install new add-ons and restart Volto:
 
