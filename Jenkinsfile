@@ -4,9 +4,9 @@ pipeline {
   environment {
         GIT_NAME = "volto-widget-theme-picker"
         NAMESPACE = "@eeacms"
-        SONARQUBE_TAGS = "volto.eea.europa.eu,demo-www.eea.europa.eu,biodiversity.europa.eu,www.eea.europa.eu-ims,clmsdemo.devel6cph.eea.europa.eu,climate-advisory-board.europa.eu,forest.eea.europa.eu,climate-adapt.eea.europa.eu,www.eea.europa.eu-en,water.europa.eu-marine,industry.eea.europa.eu,climate-energy.eea.europa.eu,water.europa.eu-freshwater"
+        SONARQUBE_TAGS = "volto.eea.europa.eu,demo-www.eea.europa.eu,biodiversity.europa.eu,www.eea.europa.eu-ims,clmsdemo.devel6cph.eea.europa.eu,climate-advisory-board.europa.eu,forest.eea.europa.eu,climate-adapt.eea.europa.eu,www.eea.europa.eu-en,water.europa.eu-marine,industry.eea.europa.eu,climate-energy.eea.europa.eu,water.europa.eu-freshwater,land.copernicus.eu"
         DEPENDENCIES = ""
-        VOLTO = ""
+        VOLTO = "16"
     }
 
   stages {
