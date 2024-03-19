@@ -20,10 +20,12 @@ describe('ThemePicker', () => {
 
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
-    const label = component.toJSON().children[0].children[0].children[0]
-      .children[0].children[0];
-    const buttons = component.toJSON().children[0].children[0].children[0]
-      .children[0].children[1];
+    const label =
+      component.toJSON().children[0].children[0].children[0].children[0]
+        .children[0];
+    const buttons =
+      component.toJSON().children[0].children[0].children[0].children[0]
+        .children[1];
 
     expect(label.children[0]).toBe('Test Theme Picker');
     expect(buttons.children[0].props.className).toContain('color1');
