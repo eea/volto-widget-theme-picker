@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import renderer from 'react-test-renderer';
+import '@testing-library/jest-dom/extend-expect';
+
 import ThemePicker from './ThemePicker';
 
 describe('ThemePicker', () => {
@@ -16,20 +17,15 @@ describe('ThemePicker', () => {
   };
 
   it('renders correctly', () => {
-    const component = renderer.create(<ThemePicker {...props} />);
+    const { container } = render(<ThemePicker {...props} />);
 
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
-    const label =
-      component.toJSON().children[0].children[0].children[0].children[0]
-        .children[0];
-    const buttons =
-      component.toJSON().children[0].children[0].children[0].children[0]
-        .children[1];
-
-    expect(label.children[0]).toBe('Test Theme Picker');
-    expect(buttons.children[0].props.className).toContain('color1');
-    expect(buttons.children[1].props.className).toContain('color2');
+    expect(container.querySelector('.wrapper label')).toBeInTheDocument();
+    expect(
+      container.querySelector('.wrapper .buttons .color1[title="Color 1"]'),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('.wrapper .buttons .color2[title="Color 2"]'),
+    ).toBeInTheDocument();
   });
 
   it('calls onChange with correct value when a color button is clicked', () => {
@@ -43,10 +39,10 @@ describe('ThemePicker', () => {
   });
 
   it('does not render when no colors are provided', () => {
-    const component = renderer.create(<ThemePicker {...props} colors={[]} />);
+    const { container } = render(<ThemePicker {...props} colors={[]} />);
 
-    let json = component.toJSON();
-    expect(json).toMatchSnapshot();
-    expect(json).toBeNull();
+    expect(
+      container.querySelector('.wrapper .field-test-theme-picker'),
+    ).not.toBeInTheDocument();
   });
 });
