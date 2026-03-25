@@ -3,16 +3,16 @@
 [![Releases](https://img.shields.io/github/v/release/eea/volto-widget-theme-picker)](https://github.com/eea/volto-widget-theme-picker/releases)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-widget-theme-picker%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-widget-theme-picker/job/master/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-master)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-master)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-master)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-master)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-widget-theme-picker%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-widget-theme-picker/job/develop/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker-develop)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&branch=develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker&branch=develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&branch=develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker&branch=develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&branch=develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker&branch=develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-theme-picker&branch=develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-theme-picker&branch=develop)
 
 [Volto](https://github.com/plone/volto) add-on
 
@@ -31,6 +31,11 @@
 
 Go to http://localhost:3000
 
+`make start` now defaults to Volto 18. To run the same setup against Volto 17, use:
+
+      VOLTO_VERSION=17 make
+      VOLTO_VERSION=17 make start
+
 ### Add volto-widget-theme-picker to your Volto project
 
 1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
@@ -44,29 +49,38 @@ Go to http://localhost:3000
 * If you already have a volto project, just update `package.json`:
 
    ```JSON
-   "addons": [
-       "@eeacms/volto-widget-theme-picker"
-   ],
-
    "dependencies": {
        "@eeacms/volto-widget-theme-picker": "*"
    }
    ```
 
-* If not, create one:
+   and `volto.config.js`:
 
-   ```
-   npm install -g yo @plone/generator-volto
-   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-theme-picker
-   cd my-volto-project
+   ```JavaScript
+   const addons = ['@eeacms/volto-widget-theme-picker'];
    ```
 
-1. Install new add-ons and restart Volto:
+* If not, create one with Cookieplone, as recommended by the official Plone documentation for Volto 18+:
 
    ```
-   yarn
-   yarn start
+   uvx cookieplone project
+   cd project-title
    ```
+
+1. Install or update dependencies, then start the project:
+
+   ```
+   make install
+   ```
+
+   For a Cookieplone project, start the backend and frontend in separate terminals:
+
+   ```
+   make backend-start
+   make frontend-start
+   ```
+
+   For a legacy Volto 17 project, install the package with `yarn` and restart the frontend as usual.
 
 1. Go to http://localhost:3000
 
