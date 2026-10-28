@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -29,7 +30,7 @@ describe('ThemePicker', () => {
   });
 
   it('calls onChange with correct value when a color button is clicked', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByTitle } = render(
       <ThemePicker {...props} onChange={onChange} />,
     );
